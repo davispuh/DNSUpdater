@@ -1,0 +1,56 @@
+
+AllCops:
+  TargetRubyVersion: 2.6
+
+Layout/IndentationWidth:
+    Width: 4
+
+Layout/EndOfLine:
+    EnforcedStyle: lf
+
+Layout/LineLength:
+    Enabled: false
+
+Lint/UnusedMethodArgument:
+    Enabled: false
+
+Naming/MethodName:
+    EnforcedStyle: camelCase
+
+Naming/VariableName:
+    Enabled: false
+    EnforcedStyle: camelCase
+
+Naming/BlockParameterName:
+    Enabled: false
+
+Naming/MethodParameterName:
+    Enabled: false
+    AllowedNames:
+        - a
+        - b
+
+Metrics/AbcSize:
+    Max: 35
+
+Metrics/MethodLength:
+    Max: 25
+
+Metrics/ClassLength:
+    Max: 200
+
+Metrics/CyclomaticComplexity:
+    Max: 10
+
+Style/ClassVars:
+    Enabled: false
+
+Style/GlobalVars:
+    AllowedVariables:
+        - $spec
+
+Metrics/BlockLength:
+    Max: 35
+    Exclude:
+        - spec/*_spec.rb
+        - spec/updaters/*_spec.rb

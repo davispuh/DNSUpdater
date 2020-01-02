@@ -1,0 +1,10 @@
+[Unit]
+Description=Update DNS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=nobody
+ExecStart=updateDNS default:///example.com/client
+

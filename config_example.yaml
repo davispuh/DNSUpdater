@@ -1,0 +1,23 @@
+---
+Default: PowerDNS
+PowerDNS:
+    TTL: 300 # 5 minutes
+    API:
+        Shared: no # Specify if this PowerDNS API os shared among multiple PowerDNS servers
+        Host: localhost
+        Port: 8081
+        Key: qdeIqaKJoi_!!!_CHANGE_ME_!!!_OhyI5P2U2Sucz
+SSH:
+    Target: PowerDNS
+    Timeout: 10 # seconds
+    Host: example.com
+    Port: 22
+    User: exampleUser
+    Password: examplePassword
+    KeyFile: ~/.ssh/id_ed25519
+HTTP:
+    Target: PowerDNS
+    Host: example.org
+    Port: 8245
+    SharedSecret: 6KDIookMMzwAtJGM_!!!_CHANGE_ME_!!!_KSLtHf4R6fSvvZiyy8E0bRpGmWCQoMaE
+...
