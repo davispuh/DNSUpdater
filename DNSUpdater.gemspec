@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
 
     spec.add_dependency 'addressable'
     spec.add_dependency 'idn-ruby'
+    spec.add_dependency 'net-ssh'
     spec.add_dependency 'pdns_api'
     spec.add_dependency 'public_suffix'
     spec.add_dependency 'puma'
@@ -37,6 +38,7 @@ Gem::Specification.new do |spec|
 
     spec.add_development_dependency 'bundler', '~> 2.0'
     spec.add_development_dependency 'irb'
+    spec.add_development_dependency 'rack-test'
     spec.add_development_dependency 'rake', '~> 10.0'
     spec.add_development_dependency 'redcarpet'
     spec.add_development_dependency 'rspec', '~> 3.0'
