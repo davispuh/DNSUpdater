@@ -47,7 +47,7 @@ class DNSUpdater
                         ssh.loop { ssh.busy? || @SSHFowardProcessing }
                     end
                     @SSH = nil
-                rescue IOError, SocketError, SystemCallError, Net::SSH::Exception => e
+                rescue IOError, SocketError, SystemCallError, Net::SSH::Exception, ScriptError => e
                     @SSHError = e.message
                 end
                 @SSHThread.report_on_exception = true
