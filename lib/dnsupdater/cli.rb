@@ -53,7 +53,7 @@ class DNSUpdater
             def getOptions(args)
                 options = {
                     ConfigFile: 'config.yaml',
-                    Target: nil,
+                    Targets: [],
                     Protocol: nil,
                     Serve: false
                 }
@@ -66,18 +66,23 @@ class DNSUpdater
                     warn e.message
                     raise SystemExit
                 end
-                options[:Target] = args.first unless args.empty?
+                options[:Targets] = args
                 options
             end
 
             def doSingleUpdate(options)
                 config = Config.new(options[:ConfigFile])
-                DNSUpdater.new(config).update(options[:Target], options[:Protocol])
-                puts 'Updated!'
+                updater = DNSUpdater.new(config)
+                options[:Targets].each do |target|
+                    updater.update(target, options[:Protocol])
+                    puts "Updated #{target}"
+                end
             end
 
             def serveWebUpdates(options)
-                params = prepareWebParams(options[:Target])
+                target = nil
+                target = options[:Targets].first unless options[:Targets].empty?
+                params = prepareWebParams(target)
                 Web.startServer(options[:ConfigFile], options[:Protocol], params)
             end
 
